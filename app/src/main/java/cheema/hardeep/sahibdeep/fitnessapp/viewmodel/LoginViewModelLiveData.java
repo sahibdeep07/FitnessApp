@@ -3,13 +3,10 @@ package cheema.hardeep.sahibdeep.fitnessapp.viewmodel;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import cheema.hardeep.sahibdeep.fitnessapp.BR;
-import cheema.hardeep.sahibdeep.fitnessapp.SignUpActivity;
+import cheema.hardeep.sahibdeep.fitnessapp.activity.SignUpActivity;
 import cheema.hardeep.sahibdeep.fitnessapp.model.User;
 import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;
 import cheema.hardeep.sahibdeep.fitnessapp.network.RetrofitUse;

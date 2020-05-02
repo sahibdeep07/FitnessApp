@@ -1,4 +1,4 @@
-package cheema.hardeep.sahibdeep.fitnessapp;
+package cheema.hardeep.sahibdeep.fitnessapp.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import cheema.hardeep.sahibdeep.fitnessapp.R;
+import cheema.hardeep.sahibdeep.fitnessapp.viewmodel.SignUpViewModel;
 import cheema.hardeep.sahibdeep.fitnessapp.databinding.ActivitySignupBinding;
 
 public class SignUpActivity extends AppCompatActivity {

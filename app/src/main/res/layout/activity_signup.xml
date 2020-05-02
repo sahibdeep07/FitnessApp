@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="cheema.hardeep.sahibdeep.fitnessapp.SignUpViewModel" />
+            type="cheema.hardeep.sahibdeep.fitnessapp.viewmodel.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SignUpActivity">
+        tools:context=".activity.SignUpActivity">
 
         <TextView
             android:id="@+id/loginText"

@@ -1,6 +1,4 @@
-package cheema.hardeep.sahibdeep.fitnessapp;
-
-import android.widget.Toast;
+package cheema.hardeep.sahibdeep.fitnessapp.controller;
 
 import cheema.hardeep.sahibdeep.fitnessapp.model.User;
 import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;

@@ -1,4 +1,4 @@
-package cheema.hardeep.sahibdeep.fitnessapp;
+package cheema.hardeep.sahibdeep.fitnessapp.controller;
 
 import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;
 

@@ -1,4 +1,4 @@
-package cheema.hardeep.sahibdeep.fitnessapp;
+package cheema.hardeep.sahibdeep.fitnessapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import cheema.hardeep.sahibdeep.fitnessapp.R;
 import cheema.hardeep.sahibdeep.fitnessapp.view.SeekBarWithNumber;
 
 public class SplashActivity extends AppCompatActivity {

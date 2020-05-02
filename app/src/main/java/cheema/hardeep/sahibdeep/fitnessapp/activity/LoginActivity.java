@@ -1,18 +1,16 @@
-package cheema.hardeep.sahibdeep.fitnessapp;
+package cheema.hardeep.sahibdeep.fitnessapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 
+import cheema.hardeep.sahibdeep.fitnessapp.viewmodel.LoginViewModel;
+import cheema.hardeep.sahibdeep.fitnessapp.R;
 import cheema.hardeep.sahibdeep.fitnessapp.databinding.ActivityLoginBinding;
-import cheema.hardeep.sahibdeep.fitnessapp.viewmodel.LoginViewModelLiveData;
 
 public class LoginActivity extends AppCompatActivity {
 

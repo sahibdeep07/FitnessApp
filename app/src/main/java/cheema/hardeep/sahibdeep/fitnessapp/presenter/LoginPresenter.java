@@ -1,12 +1,12 @@
-package cheema.hardeep.sahibdeep.fitnessapp;
+package cheema.hardeep.sahibdeep.fitnessapp.presenter;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cheema.hardeep.sahibdeep.fitnessapp.activity.SignUpActivity;
 import cheema.hardeep.sahibdeep.fitnessapp.model.User;
 import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;
 import cheema.hardeep.sahibdeep.fitnessapp.network.RetrofitUse;
