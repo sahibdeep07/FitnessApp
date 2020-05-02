@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="cheema.hardeep.sahibdeep.fitnessapp.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SignUpActivity">
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="40dp"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="40sp"
+            android:fontFamily="monospace"
+            />
+
+        <EditText
+            android:id="@+id/firstname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="40dp"
+            android:ems="10"
+            android:text="@={viewModel.firstName}"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/colorAccentLight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/lastname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:text="@={viewModel.lastName}"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/colorAccentLight"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstname" />
+
+        <EditText
+            android:id="@+id/usernameSignup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/colorAccentLight"
+            android:text="@={viewModel.username}"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weight" />
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Age"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/colorAccentLight"
+            android:text="@={viewModel.age}"
+            android:inputType="number"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastname" />
+
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Height"
+            android:inputType="numberDecimal"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/colorAccentLight"
+            android:text="@={viewModel.height}"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/age" />
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Weight"
+            android:inputType="numberSigned"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/colorAccentLight"
+            android:text="@={viewModel.weight}"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/height" />
+
+        <EditText
+            android:id="@+id/passwordSignup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/primaryTextColor"
+            android:textColor="@color/colorAccentLight"
+            android:text="@={viewModel.password}"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usernameSignup" />
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/curved_button"
+            android:textColor="@color/primaryTextColor"
+            android:onClick="@{viewModel::signUpClicked}"
+            android:text="Sign Up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordSignup" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
