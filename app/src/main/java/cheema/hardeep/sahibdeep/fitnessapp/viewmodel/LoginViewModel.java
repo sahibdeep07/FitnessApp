@@ -11,7 +11,7 @@ import cheema.hardeep.sahibdeep.fitnessapp.activity.SignUpActivity;
 import cheema.hardeep.sahibdeep.fitnessapp.model.User;
 import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;
 import cheema.hardeep.sahibdeep.fitnessapp.network.RetrofitUse;
-import cheema.hardeep.sahibdeep.fitnessapp.network.UserService;
+import cheema.hardeep.sahibdeep.fitnessapp.network.FitnessApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +21,7 @@ public class LoginViewModel extends BaseObservable {
     private String username;
     private String password;
 
-    private UserService userService = RetrofitUse.getRetrofit();
+    private FitnessApi fitnessApi = RetrofitUse.getRetrofit();
 
     @Bindable
     public String getUsername() {
@@ -44,7 +44,7 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public void loginClicked(View view) {
-        userService.login(generateUser()).enqueue(new Callback<UserResponse>() {
+        fitnessApi.login(generateUser()).enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 Toast.makeText(view.getContext(), "Success: " + response.body().getCode(), Toast.LENGTH_SHORT).show();

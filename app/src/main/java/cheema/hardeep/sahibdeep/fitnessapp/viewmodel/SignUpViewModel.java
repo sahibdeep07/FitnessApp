@@ -1,5 +1,6 @@
 package cheema.hardeep.sahibdeep.fitnessapp.viewmodel;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.Toast;
 
@@ -8,12 +9,10 @@ import androidx.databinding.Bindable;
 
 import cheema.hardeep.sahibdeep.fitnessapp.BR;
 import cheema.hardeep.sahibdeep.fitnessapp.model.User;
-import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;
-import cheema.hardeep.sahibdeep.fitnessapp.network.RetrofitUse;
-import cheema.hardeep.sahibdeep.fitnessapp.network.UserService;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import cheema.hardeep.sahibdeep.fitnessapp.network.FitnessApiService;
+import cheema.hardeep.sahibdeep.fitnessapp.network.ServiceProvider;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class SignUpViewModel extends BaseObservable {
 
@@ -25,7 +24,7 @@ public class SignUpViewModel extends BaseObservable {
     private String username;
     private String password;
 
-    private UserService userService = RetrofitUse.getRetrofit();
+    private FitnessApiService fitnessApiService = ServiceProvider.provideFitnessApiService();
 
     @Bindable
     public String getFirstName() {
@@ -97,18 +96,18 @@ public class SignUpViewModel extends BaseObservable {
         notifyPropertyChanged(BR.password);
     }
 
+    @SuppressLint("CheckResult")
     public void signUpClicked(View view) {
-        userService.createUser(generateUser()).enqueue(new Callback<UserResponse>() {
-            @Override
-            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                Toast.makeText(view.getContext(), "Hi" + response.body().getCode() + response.body().getMessage(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<UserResponse> call, Throwable t) {
-                Toast.makeText(view.getContext(), "BI", Toast.LENGTH_SHORT).show();
-            }
-        });
+        fitnessApiService.createUser(generateUser())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(user -> {
+                    //Main Thread: You can do anything
+                    Toast.makeText(view.getContext(), "Hi " + user.getFirstName(), Toast.LENGTH_SHORT).show();
+                }, throwable -> {
+                    //MainThread: Handle your Error
+                    Toast.makeText(view.getContext(), "Something went wrong, Bye!", Toast.LENGTH_SHORT).show();
+                });
     }
 
     private User generateUser() {

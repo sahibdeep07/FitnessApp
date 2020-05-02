@@ -3,24 +3,24 @@ package cheema.hardeep.sahibdeep.fitnessapp.controller;
 import cheema.hardeep.sahibdeep.fitnessapp.model.User;
 import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;
 import cheema.hardeep.sahibdeep.fitnessapp.network.RetrofitUse;
-import cheema.hardeep.sahibdeep.fitnessapp.network.UserService;
+import cheema.hardeep.sahibdeep.fitnessapp.network.FitnessApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginController {
 
-    private UserService userService;
+    private FitnessApi fitnessApi;
     private LoginInterface loginInterface;
 
     public LoginController(LoginInterface loginInterface) {
         this.loginInterface = loginInterface;
-        this.userService = RetrofitUse.getRetrofit();
+        this.fitnessApi = RetrofitUse.getRetrofit();
     }
 
     public void login(String username, String password) {
         User user = getLoginData(username, password);
-        userService.login(user).enqueue(new Callback<UserResponse>() {
+        fitnessApi.login(user).enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 loginInterface.onSuccess(response.body());

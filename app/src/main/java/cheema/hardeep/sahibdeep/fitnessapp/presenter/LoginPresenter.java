@@ -10,18 +10,18 @@ import cheema.hardeep.sahibdeep.fitnessapp.activity.SignUpActivity;
 import cheema.hardeep.sahibdeep.fitnessapp.model.User;
 import cheema.hardeep.sahibdeep.fitnessapp.model.UserResponse;
 import cheema.hardeep.sahibdeep.fitnessapp.network.RetrofitUse;
-import cheema.hardeep.sahibdeep.fitnessapp.network.UserService;
+import cheema.hardeep.sahibdeep.fitnessapp.network.FitnessApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginPresenter {
 
-    private UserService userService;
+    private FitnessApi fitnessApi;
     private Context context;
 
     public LoginPresenter(Context context) {
-        this.userService = RetrofitUse.getRetrofit();
+        this.fitnessApi = RetrofitUse.getRetrofit();
         this.context = context;
     }
 
@@ -35,7 +35,7 @@ public class LoginPresenter {
 
     public void login(EditText username, EditText password) {
         User user = getLoginData(username.getText().toString() , password.getText().toString());
-        userService.login(user).enqueue(new Callback<UserResponse>() {
+        fitnessApi.login(user).enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 Toast.makeText(context, "Success: " + response.body().getCode(), Toast.LENGTH_SHORT).show();
