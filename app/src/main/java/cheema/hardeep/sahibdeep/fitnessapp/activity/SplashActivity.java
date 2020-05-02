@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import cheema.hardeep.sahibdeep.fitnessapp.R;
+import cheema.hardeep.sahibdeep.fitnessapp.builder.Student;
 import cheema.hardeep.sahibdeep.fitnessapp.view.SeekBarWithNumber;
 
 public class SplashActivity extends AppCompatActivity {
@@ -19,8 +20,8 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         new Handler().postDelayed(() -> {
-           startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-           finish();
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            finish();
         }, 50000);
 
         seekBarWithNumber = findViewById(R.id.sbn);
@@ -28,5 +29,15 @@ public class SplashActivity extends AppCompatActivity {
         seekBarWithNumber.setRangeSliderListener(newValue -> {
             Log.d("Sahib", newValue + "");
         });
+    }
+
+    public void testBuilder() {
+        Student student = new Student.Builder()
+                .setAge(12)
+                .setName("Sahib")
+                .setRollNumber("52")
+                .build();
+
+        String name = student.getName();
     }
 }
